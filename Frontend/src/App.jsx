@@ -1,16 +1,15 @@
-// App.jsx
 import React from 'react';
-import { SessionProvider} from './context/SessionProvider';
-import { useSession } from './hooks/userSession';
-import { Login } from './Components/login';
-import { Home } from './Components/home';
+import { SessionProvider } from './context/SessionProvider';
+import { useSession } from './hooks/userSession'; 
+import { Login } from './Components/Login';
+import { Home } from './Components/Home';
 
 function AppContent() {
-  const { session } = useSession(); 
+  const { user } = useSession(); 
 
   return (
     <div className="App">
-      {session ? <Home /> : <Login />}
+      {user ? <Home /> : <Login />}
     </div>
   );
 }
