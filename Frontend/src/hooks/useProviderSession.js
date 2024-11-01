@@ -16,10 +16,11 @@ export function useProvideSession() {
                 body: JSON.stringify(credentials),
             });
             const data = await response.json();
+            console.log(data);
             if (response.ok) {
-                setToken(data.token); // Solo almacenar el token
-                setUser({ username: data.username, role: data.role }); // Guardar info del usuario
-                sessionStorage.setItem('token', data.token); // Guardar token en almacenamiento local
+                setToken(data.token); 
+                setUser({ username: data.username }); 
+                sessionStorage.setItem('token', data.token); 
             } else {
                 setError(data.message || 'Error al iniciar sesión');
             }
@@ -33,7 +34,7 @@ export function useProvideSession() {
     const logout = () => {
         setToken(null);
         setUser(null);
-        sessionStorage.removeItem('token'); // Eliminar token de almacenamiento local
+        sessionStorage.removeItem('token'); 
     };
 
     return {

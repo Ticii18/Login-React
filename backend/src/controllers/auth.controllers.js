@@ -78,6 +78,8 @@ export const signInCtrl = async (req, res) => {
     return res.json({
       message: "Inicio de sesión exitoso",
       userId: user.id,
+      username: user.username,
+      token: token,
     });
   } catch (error) {
     console.error(error);
